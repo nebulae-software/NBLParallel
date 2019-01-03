@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		CF9E6DDB21DD9736001C9A86 /* NBLParallel.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9E6DD921DD9736001C9A86 /* NBLParallel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF9E6DE221DD9811001C9A86 /* TabularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E6DE121DD9811001C9A86 /* TabularViewController.swift */; };
+		CF9E6DE421DD9841001C9A86 /* ScrollableSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E6DE321DD9841001C9A86 /* ScrollableSegmentedControl.swift */; };
+		CF9E6DE621DD98DD001C9A86 /* ScrollableSegmentedControlItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9E6DE521DD98DD001C9A86 /* ScrollableSegmentedControlItemButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF9E6DD621DD9736001C9A86 /* NBLParallel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBLParallel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9E6DD921DD9736001C9A86 /* NBLParallel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBLParallel.h; sourceTree = "<group>"; };
 		CF9E6DDA21DD9736001C9A86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF9E6DE121DD9811001C9A86 /* TabularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabularViewController.swift; sourceTree = "<group>"; };
+		CF9E6DE321DD9841001C9A86 /* ScrollableSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableSegmentedControl.swift; sourceTree = "<group>"; };
+		CF9E6DE521DD98DD001C9A86 /* ScrollableSegmentedControlItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableSegmentedControlItemButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,9 @@
 		CF9E6DD821DD9736001C9A86 /* NBLParallel */ = {
 			isa = PBXGroup;
 			children = (
+				CF9E6DE121DD9811001C9A86 /* TabularViewController.swift */,
+				CF9E6DE321DD9841001C9A86 /* ScrollableSegmentedControl.swift */,
+				CF9E6DE521DD98DD001C9A86 /* ScrollableSegmentedControlItemButton.swift */,
 				CF9E6DD921DD9736001C9A86 /* NBLParallel.h */,
 				CF9E6DDA21DD9736001C9A86 /* Info.plist */,
 			);
@@ -95,6 +104,7 @@
 				TargetAttributes = {
 					CF9E6DD521DD9736001C9A86 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -130,6 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9E6DE421DD9841001C9A86 /* ScrollableSegmentedControl.swift in Sources */,
+				CF9E6DE621DD98DD001C9A86 /* ScrollableSegmentedControlItemButton.swift in Sources */,
+				CF9E6DE221DD9811001C9A86 /* TabularViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +274,7 @@
 		CF9E6DDF21DD9736001C9A86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -270,6 +284,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NBLParallel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -278,6 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = software.nebulae.NBLParallel;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +302,7 @@
 		CF9E6DE021DD9736001C9A86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -295,6 +312,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = NBLParallel/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
