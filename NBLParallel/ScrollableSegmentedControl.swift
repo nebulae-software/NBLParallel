@@ -84,9 +84,9 @@ class ScrollableSegmentedControl : UIControl {
     addSubview(scrollView)
     let constraints = [
       scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      scrollView.topAnchor.constraint(equalTo: topAnchor),
       trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
       bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+      scrollView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
     ]
     NSLayoutConstraint.activate(constraints)
   }
