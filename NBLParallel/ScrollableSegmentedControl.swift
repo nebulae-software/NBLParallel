@@ -95,14 +95,16 @@ class ScrollableSegmentedControl : UIControl {
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.spacing = 10
     stackView.distribution = .equalSpacing
-    stackView.alignment = .center
+    stackView.alignment = .fill
     
     scrollView.addSubview(stackView)
     let constraints = [
       stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 10),
       stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
       scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 10),
-      scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
+      scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+      scrollView.heightAnchor.constraint(equalToConstant: 50),
+      stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
     ]
     NSLayoutConstraint.activate(constraints)
   }
