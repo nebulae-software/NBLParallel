@@ -66,8 +66,7 @@ open class TabularViewController: UIViewController {
     let constraints = [
       titleSegmentsControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       titleSegmentsControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      titleSegmentsControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      titleSegmentsControl.heightAnchor.constraint(equalToConstant: 50)
+      titleSegmentsControl.topAnchor.constraint(equalTo: view.topAnchor)
     ]
     NSLayoutConstraint.activate(constraints)
   }
@@ -76,7 +75,8 @@ open class TabularViewController: UIViewController {
     super.viewDidLayoutSubviews()
     
     viewControllers.forEach {
-      $0.additionalSafeAreaInsets = UIEdgeInsets(top: titleSegmentsControl.frame.height, left: 0, bottom: 0, right: 0)
+      let additionalSafeAreaTopInset = titleSegmentsControl.frame.maxY - view.safeAreaInsets.top
+      $0.additionalSafeAreaInsets = UIEdgeInsets(top: additionalSafeAreaTopInset, left: 0, bottom: 0, right: 0)
     }
   }
   
