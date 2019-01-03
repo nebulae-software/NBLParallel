@@ -9,6 +9,11 @@
 import UIKit
 
 class ScrollableSegmentedControl : UIControl {
+  private let translucencyView: UIVisualEffectView = {
+    let effect = UIBlurEffect(style: .dark)
+    let vxView = UIVisualEffectView(effect: effect)
+    return vxView
+  }()
   private let scrollView = UIScrollView()
   private let stackView: UIStackView = {
     let stack = UIStackView()
@@ -71,9 +76,23 @@ class ScrollableSegmentedControl : UIControl {
   }
   
   private func buildViews() {
+    setUpTranslucencyView()
     setUpScrollView()
     setupStackView()
     setUpButtons()
+  }
+  
+  private func setUpTranslucencyView() {
+    translucencyView.translatesAutoresizingMaskIntoConstraints = false
+    
+    addSubview(translucencyView)
+    let constraints = [
+      translucencyView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      translucencyView.topAnchor.constraint(equalTo: topAnchor),
+      trailingAnchor.constraint(equalTo: translucencyView.trailingAnchor),
+      bottomAnchor.constraint(equalTo: translucencyView.bottomAnchor),
+    ]
+    NSLayoutConstraint.activate(constraints)
   }
   
   private func setUpScrollView() {
@@ -81,12 +100,12 @@ class ScrollableSegmentedControl : UIControl {
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.showsVerticalScrollIndicator = false
     
-    addSubview(scrollView)
+    translucencyView.contentView.addSubview(scrollView)
     let constraints = [
-      scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-      bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+      scrollView.leadingAnchor.constraint(equalTo: translucencyView.leadingAnchor),
       scrollView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+      translucencyView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+      translucencyView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
     ]
     NSLayoutConstraint.activate(constraints)
   }
