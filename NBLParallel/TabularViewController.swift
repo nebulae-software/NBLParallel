@@ -32,6 +32,19 @@ open class TabularViewController: UIViewController {
     }
   }
   
+  public var isGestureBasedNavigationEnabled: Bool {
+    get {
+      return pageController.dataSource != nil
+    }
+    set {
+      if newValue {
+        pageController.dataSource = self
+      } else {
+        pageController.dataSource = nil
+      }
+    }
+  }
+  
   public var selectedViewControllerIndex: Int = 0
   
   public var viewControllers: [UIViewController] = [] {
