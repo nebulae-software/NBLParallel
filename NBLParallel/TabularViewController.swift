@@ -23,6 +23,15 @@ open class TabularViewController: UIViewController {
     )
   }()
   
+  public var segmentedBarTintColor: UIColor? {
+    get {
+      return titleSegmentsControl.backgroundColor
+    }
+    set {
+      titleSegmentsControl.backgroundColor = newValue
+    }
+  }
+  
   public var selectedViewControllerIndex: Int = 0
   
   public var viewControllers: [UIViewController] = [] {
@@ -66,7 +75,7 @@ open class TabularViewController: UIViewController {
     let constraints = [
       titleSegmentsControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       titleSegmentsControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      titleSegmentsControl.topAnchor.constraint(equalTo: view.topAnchor)
+      titleSegmentsControl.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor)
     ]
     NSLayoutConstraint.activate(constraints)
   }
