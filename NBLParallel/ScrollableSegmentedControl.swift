@@ -10,7 +10,7 @@ import UIKit
 
 class ScrollableSegmentedControl : UIControl {
   private let backgroundEffectView: UIVisualEffectView = {
-    let blur = UIBlurEffect(style: .dark)
+    let blur = UIBlurEffect(style: .light)
     let visualEffectView = UIVisualEffectView(effect: blur)
     visualEffectView.translatesAutoresizingMaskIntoConstraints = false
     visualEffectView.contentView.backgroundColor = UIColor(white: 0.97, alpha: 0.5)
@@ -19,7 +19,7 @@ class ScrollableSegmentedControl : UIControl {
   
   private let backgroundColorView: UIView = {
     let view = UIView()
-    view.alpha = 0.70
+    view.alpha = 0.85
     view.backgroundColor = .darkGray
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
