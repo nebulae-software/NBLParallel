@@ -34,13 +34,13 @@ class ScrollableSegmentedControl : UIControl {
   
   var activeButtonsColor: UIColor = .white {
     didSet {
-      buttons.forEach { $0.activeColor = activeButtonsColor }
+      buttons.forEach { $0.setTitleColor(activeButtonsColor, for: .selected) }
     }
   }
   
   var inactiveButtonsColor: UIColor = .lightGray {
     didSet {
-      buttons.forEach { $0.inactiveColor = inactiveButtonsColor }
+      buttons.forEach { $0.setTitleColor(inactiveButtonsColor, for: .normal) }
     }
   }
   
@@ -151,6 +151,8 @@ class ScrollableSegmentedControl : UIControl {
       button.addTarget(self,
                        action: #selector(buttonClicked(button:)),
                        for: .touchUpInside)
+      button.setTitleColor(activeButtonsColor, for: .selected)
+      button.setTitleColor(inactiveButtonsColor, for: .normal)
       
       button.sizeToFit()
       buttons.append(button)

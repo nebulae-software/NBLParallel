@@ -15,9 +15,6 @@ class ScrollableSegmentedControlItemButton: UIButton {
     case lineBelow
   }
   
-  var activeColor: UIColor = .white
-  var inactiveColor: UIColor = .white
-  
   var selectionStyle: SelectionStyle = .lineBelow
   
   override init(frame: CGRect) {

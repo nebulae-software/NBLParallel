@@ -32,6 +32,33 @@ open class TabularViewController: UIViewController {
     }
   }
   
+  public var font: UIFont {
+    get {
+      return titleSegmentsControl.buttonsFont
+    }
+    set {
+      titleSegmentsControl.buttonsFont = newValue
+    }
+  }
+
+  public var activeTitleColor: UIColor {
+    get {
+      return titleSegmentsControl.activeButtonsColor
+    }
+    set {
+      titleSegmentsControl.activeButtonsColor = newValue
+    }
+  }
+  
+  public var inactiveTitleColor: UIColor {
+    get {
+      return titleSegmentsControl.inactiveButtonsColor
+    }
+    set {
+      titleSegmentsControl.inactiveButtonsColor = newValue
+    }
+  }
+  
   public var isGestureBasedNavigationEnabled: Bool {
     get {
       return pageController.dataSource != nil
