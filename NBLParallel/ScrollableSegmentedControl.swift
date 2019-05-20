@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScrollableSegmentedControl : UIControl {
+public class ScrollableSegmentedControl : UIControl {
   private let backgroundEffectView: UIVisualEffectView = {
     let blur = UIBlurEffect(style: .light)
     let visualEffectView = UIVisualEffectView(effect: blur)
@@ -32,13 +32,13 @@ class ScrollableSegmentedControl : UIControl {
     return stack
   }()
   
-  var activeButtonsColor: UIColor = .white {
+  public var activeButtonsColor: UIColor = .white {
     didSet {
       buttons.forEach { $0.setTitleColor(activeButtonsColor, for: .selected) }
     }
   }
   
-  var inactiveButtonsColor: UIColor = .lightGray {
+  public var inactiveButtonsColor: UIColor = .lightGray {
     didSet {
       buttons.forEach { $0.setTitleColor(inactiveButtonsColor, for: .normal) }
     }
@@ -50,7 +50,7 @@ class ScrollableSegmentedControl : UIControl {
     }
   }
   
-  override var backgroundColor: UIColor? {
+  override public var backgroundColor: UIColor? {
     get {
       return backgroundColorView.backgroundColor
     }
