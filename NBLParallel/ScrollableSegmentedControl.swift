@@ -10,8 +10,9 @@ import UIKit
 
 public class ScrollableSegmentedControl : UIControl {
   private let translucencyView: UIVisualEffectView = {
-    let effect = UIBlurEffect(style: .dark)
+    let effect = UIBlurEffect(style: .light)
     let vxView = UIVisualEffectView(effect: effect)
+    vxView.contentView.backgroundColor = UIColor(white: 0.97, alpha: 0.8)
     return vxView
   }()
   private let scrollView = UIScrollView()
@@ -21,13 +22,13 @@ public class ScrollableSegmentedControl : UIControl {
     return stack
   }()
   
-  var activeButtonsColor: UIColor = .white {
+  public var activeButtonsColor: UIColor = .white {
     didSet {
       buttons.forEach { $0.activeColor = activeButtonsColor }
     }
   }
   
-  var inactiveButtonsColor: UIColor = .lightGray {
+  public var inactiveButtonsColor: UIColor = .lightGray {
     didSet {
       buttons.forEach { $0.inactiveColor = inactiveButtonsColor }
     }
@@ -129,6 +130,9 @@ public class ScrollableSegmentedControl : UIControl {
   }
   
   private func setUpButtons() {
+    buttons.forEach { $0.removeFromSuperview() }
+    buttons.removeAll()
+    
     titles.forEach { title in
       let button = ScrollableSegmentedControlItemButton()
       button.setTitle(title, for: .normal)
@@ -136,7 +140,8 @@ public class ScrollableSegmentedControl : UIControl {
       button.addTarget(self,
                        action: #selector(buttonClicked(button:)),
                        for: .touchUpInside)
-      
+      button.activeColor = activeButtonsColor
+      button.inactiveColor = inactiveButtonsColor
       button.sizeToFit()
       buttons.append(button)
       stackView.addArrangedSubview(button)
