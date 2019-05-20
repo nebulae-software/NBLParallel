@@ -15,8 +15,18 @@ class ScrollableSegmentedControlItemButton: UIButton {
     case lineBelow
   }
   
-  var activeColor: UIColor = .white
-  var inactiveColor: UIColor = .white
+  var activeColor: UIColor = .white {
+    didSet {
+      configure()
+      setNeedsDisplay()
+    }
+  }
+  var inactiveColor: UIColor = .white {
+    didSet {
+      configure()
+      setNeedsDisplay()
+    }
+  }
   
   var selectionStyle: SelectionStyle = .lineBelow
   
@@ -31,6 +41,8 @@ class ScrollableSegmentedControlItemButton: UIButton {
   }
   
   private func configure() {
+    setTitleColor(activeColor, for: .normal)
+    setTitleColor(inactiveColor, for: .disabled)
     backgroundColor = .clear
     contentEdgeInsets = UIEdgeInsets(top: 2, left: 15, bottom: 2, right: 15)
   }
@@ -42,7 +54,7 @@ class ScrollableSegmentedControlItemButton: UIButton {
     context.saveGState()
     
     context.setLineWidth(5)
-    context.setStrokeColor(UIColor.white.cgColor)
+    context.setStrokeColor(self.activeColor.cgColor)
     
     let titleRect = self.titleRect(forContentRect: bounds)
 
