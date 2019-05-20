@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScrollableSegmentedControl : UIControl {
+public class ScrollableSegmentedControl : UIControl {
   private let translucencyView: UIVisualEffectView = {
     let effect = UIBlurEffect(style: .dark)
     let vxView = UIVisualEffectView(effect: effect)
@@ -39,7 +39,7 @@ class ScrollableSegmentedControl : UIControl {
     }
   }
   
-  override var backgroundColor: UIColor? {
+  override public var backgroundColor: UIColor? {
     didSet {
       scrollView.backgroundColor = backgroundColor
     }

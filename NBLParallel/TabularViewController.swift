@@ -10,10 +10,14 @@ import UIKit
 
 open class TabularViewController: UIViewController {
   
-  fileprivate var titleSegmentsControl: ScrollableSegmentedControl = {
+  fileprivate let titleSegmentsControl: ScrollableSegmentedControl = {
     let control = ScrollableSegmentedControl(titles: [], frame: .zero)
     return control
   }()
+  
+  public var segmentedControl: ScrollableSegmentedControl {
+    return titleSegmentsControl
+  }
   
   private lazy var pageController: UIPageViewController! = {
     return UIPageViewController(
